@@ -32,7 +32,7 @@ class Backend(object):
         self.settings = settings
         # Load engines
         engines = gespeaker.engines.detect_engines()
-        for engine_name, engine_class in engines.items():
+        for engine_name, engine_class in list(engines.items()):
             obj_engine = engine_class(settings)
             self.engines[engine_name] = obj_engine
 
@@ -41,7 +41,7 @@ class Backend(object):
         Get the list of the languages for all the engines
         """
         result = []
-        for engine in self.engines.values():
+        for engine in list(self.engines.values()):
             result.extend(engine.get_languages())
         return result
 

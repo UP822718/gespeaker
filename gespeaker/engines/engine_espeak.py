@@ -48,7 +48,7 @@ class EngineEspeak(EngineBase):
         """
         super(self.__class__, self).__init__(settings, globals())
         self.include_test_voices = False
-        self.dir_languages = '/usr/share/espeak-data/voices'
+        self.dir_languages = '/usr/lib/x86_64-linux-gnu/espeak-data/voices'
 
     def get_languages(self):
         """

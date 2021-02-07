@@ -145,10 +145,10 @@ class Settings(object):
         Print a text with current date and time based on verbose level
         """
         if verbose_level <= self.options.verbose_level:
-            print('[{DATE} {TIME}] {TEXT}'.format(
+            print(('[{DATE} {TIME}] {TEXT}'.format(
                 DATE=time.strftime('%Y/%m/%d'),
                 TIME=time.strftime('%H:%M:%S'),
-                TEXT=text))
+                TEXT=text)))
 
     def is_debug(self):
         """

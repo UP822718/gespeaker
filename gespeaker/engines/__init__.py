@@ -44,8 +44,10 @@ def detect_engines():
                 if engine_class.check_requirements():
                     engines[engine_class.name] = engine_class
                 else:
-                    print('  > Skipping engine {ENGINE} for unmet '
-                          'requirements'.format(ENGINE=module_name))
+                    print(('  > Skipping engine {ENGINE} for unmet '
+                          'requirements'.format(ENGINE=module_name)))
         except ImportError:
-            print('  > Skipping engine {ENGINE}'.format(ENGINE=module_name))
+            print(('  > Skipping engine {ENGINE}'.format(ENGINE=module_name)))
+        except:
+            pass
     return engines

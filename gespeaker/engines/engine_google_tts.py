@@ -66,7 +66,7 @@ class EngineGoogleTTS(EngineBase):
         # Get gTTS languages
         try:
             languages = gtts.lang.tts_langs()
-            for name, description in languages.items():
+            for name, description in list(languages.items()):
                 new_language = {KEY_ENGINE: self.name,
                                 KEY_NAME: name,
                                 KEY_LANGUAGE: description,

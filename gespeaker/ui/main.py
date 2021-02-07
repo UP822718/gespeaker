@@ -17,7 +17,6 @@
 #  with this program; if not, write to the Free Software Foundation, Inc.,
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
-
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
@@ -75,7 +74,7 @@ class MainWindow(object):
         """
         # Load available engines
         self.modelEngines = ModelEngines(self.ui.modelEngines)
-        for engine_name, obj_engine in self.backend.engines.items():
+        for engine_name, obj_engine in list(self.backend.engines.items()):
             # Add a new CheckMenuItem for each engine
             menu_engine = Gtk.CheckMenuItem(engine_name)
             # Load the engine status from the settings
@@ -171,7 +170,7 @@ class MainWindow(object):
         """
         self.modelLanguages.clear()
         current_engine = self._get_current_engine()
-        for obj_engine in self.backend.engines.values():
+        for obj_engine in list(self.backend.engines.values()):
             # Load languages only for selected engine
             if obj_engine.name == current_engine and obj_engine.enabled:
                 for language in obj_engine.get_languages():
@@ -247,7 +246,7 @@ class MainWindow(object):
         """
         self.modelEngines.clear()
         self.modelLanguages.clear()
-        for obj_engine in self.backend.engines.values():
+        for obj_engine in list(self.backend.engines.values()):
             # Load languages only for enabled engines
             if obj_engine.enabled:
                 self.modelEngines.add(obj_engine.name, obj_engine.name)

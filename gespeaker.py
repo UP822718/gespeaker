@@ -18,7 +18,8 @@
 #  with this program; if not, write to the Free Software Foundation, Inc.,
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
-
+import sys
+import gi
 import gettext
 import locale
 
@@ -40,4 +41,4 @@ if __name__ == '__main__':
 
     # Start the application
     app = Application(settings)
-    app.run(None)
+    app.run(sys.argv)
